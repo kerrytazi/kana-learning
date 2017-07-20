@@ -1,0 +1,34 @@
+- let svgSize = 1000;
+- let halfSvg = svgSize / 2;
+- let rectSize = 200;
+- let rectCount = 6;
+- let deg = 360 / rectCount;
+
+svg(
+    version="2.0"
+    viewBox=`0 0 ${svgSize} ${svgSize}`
+)
+    defs
+        rect(
+            id="rect_def"
+            rx=`${rectSize / 2.5}`
+            ry=`${rectSize / 2.5}`
+            x=`${halfSvg - (rectSize / 2)}`
+            width=`${rectSize}`
+            height=`${rectSize}`
+            fill="#dfdfdf"
+        )
+    g
+        circle(
+            cx=`${halfSvg}`
+            cy=`${halfSvg}`
+            r=`${svgSize / 4}`
+            fill="transparent"
+            stroke="#dfdfdf"
+            stroke-width=`${svgSize / 5}`
+        )
+        - for(let i = 0; i < rectCount; i++)
+            use(
+                href="#rect_def"
+                transform=`rotate(${i * deg} ${halfSvg} ${halfSvg})`
+            )

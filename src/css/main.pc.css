@@ -1,0 +1,187 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+    font-size: 0;
+    font-family: sans-serif;
+}
+
+#vue_container {
+    position: relative;
+    background: #000;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+#main_panel {
+    position: absolute;
+    background: #3A3A3A;
+    
+    top: 20vh;
+    left: calc(50vw - 30vh);
+    height: 60vh;
+    width: 60vh;
+}
+
+#settings_panel,
+.kana_in,
+.kana_out,
+.result_correct,
+.result_incorrect,
+.settings_btn {
+    position: absolute;
+    background: #1C1C1C;
+    color: #fff;
+}
+
+.kana_out {
+    display: flex;
+
+    height: 20vh;
+    width: 30vh;
+    top: 8vh;
+    left: 15vh;
+
+    justify-content: center;
+
+    font-size: 14vh;
+}
+
+.kana_in {
+    height: 17vh;
+    width: 24vh;
+    top: 32vh;
+    left: 18vh;
+
+    border: none;
+    padding: 0;
+    outline: none;
+
+    font-size: 12vh;
+    text-align: center;
+}
+
+
+.result_correct,
+.result_incorrect {
+    height: 9vh;
+    width: 14vh;
+    top: 36vh;
+
+    font-size: 8vh;
+    line-height: 9vh;
+    text-align: center;
+}
+
+.result_correct {
+    left: 44vh;
+}
+
+.result_incorrect {
+    left: 2vh;
+}
+
+.settings_btn {
+    height: 8vh;
+    width: 8vh;
+    top: 2vh;
+    left: 2vh;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.settings_btn > svg {
+    margin: 1vh;
+    height: 6vh;
+    width: 6vh;
+}
+
+#settings_panel {
+    height: 56vh;
+    width: 56vh;
+    top: 22vh;
+    left: calc(50vw - 28vh);
+
+    font-size: 5vh;
+}
+
+.vocab_item {
+    background: rgba(98,27,27,.4);
+    margin: 1vh;
+    cursor: pointer;
+
+    font-size: 5vh;
+    text-align: center;
+}
+
+.vocab_item:hover {
+    filter: brightness(1.2);
+}
+
+.vocab_item[in-list="true"] {
+    background: rgba(27,98,30,.4);
+}
+
+.correct {
+    animation: correct_show_key .6s forwards;
+}
+
+
+.incorrect {
+    animation: incorrect_show_key .6s forwards;
+}
+
+.open_settings {
+    animation: open_settings_key .2s forwards;
+}
+
+.close_settings {
+    animation: close_settings_key .2s forwards;
+}
+
+
+@keyframes correct_show_key {
+    from {
+        background: #62ff47;
+    }
+
+    to {
+        background: #1C1C1C;
+    }
+}
+
+@keyframes incorrect_show_key {
+    from {
+        background: #ff4747;
+    }
+
+    to {
+        background: #1C1C1C;
+    }
+}
+
+@keyframes open_settings_key {
+    from {
+        opacity: 0;
+        left: calc(50vw - 24vh);
+    }
+
+    to {
+        opacity: 1;
+        left: calc(50vw - 28vh);
+    }
+}
+
+@keyframes close_settings_key {
+    from {
+        opacity: 1;
+        left: calc(50vw - 28vh);
+    }
+
+    to {
+        opacity: 0;
+        left: calc(50vw - 32vh);
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "kana-learning",
+    "version": "1.0.0",
+    "description": "Web app for test your knowleges",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kerrytazi/kana-learning.git"
+    },
+    "author": "Alexander Akhundzhanov",
+    "license": "MIT",
+    "dependencies": {
+        "jstransformer-clean-css": "^2.0.0",
+        "jstransformer-uglify-es": "^0.2.1",
+        "pug": "^2.0.0-rc.2"
+    }
+}

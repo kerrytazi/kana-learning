@@ -1,0 +1,59 @@
+extends templates/layout.pug
+
+
+block links
+    - let rand = () => ((Math.random() * 26) | 0) + 65;
+    - let hash = "";
+    - for (let i = 0; i < 16; i++) hash += String.fromCharCode(rand());
+    link(rel="icon" href=`/favicon/?hash=${hash}`)
+
+
+block styles
+    style
+        include:clean-css css/main.pc.css
+
+
+block scripts
+    script
+        include:uglify-es(compress={toplevel:true}) js/vue.min.js
+
+
+block postScripts
+    script
+        include:uglify-es(compress={toplevel:true}) js/main.pc.js
+
+
+block content
+    #vue_container(
+        @click="closeSettings"
+    )
+        #main_panel
+            .kana_out
+                | {{ pair ? pair[1] : "" }}
+            input.kana_in(
+                type="text"
+                autofocus
+                v-model="inputText"
+                :class="show.scene"
+                @keydown.enter.lazy="onEnter"
+            )
+            .result_correct
+                | {{ result.correct }}
+            .result_incorrect
+                | {{ result.incorrect }}
+            .settings_btn(
+                @click.stop="settings.visible = 'open_settings'"
+            )
+                include templates/settings-ico.pug
+        #settings_panel(
+            v-if="settings.visible"
+            :class="settings.visible"
+            @click.stop
+        )
+            .vocabs
+                .vocab_item(
+                    v-for="_, voc, _, ind, isInList in vocabList"
+                    v-text="voc"
+                    :in-list="isInList = -1 < (ind = settings.vocabs.indexOf(voc))"
+                    @click="changeVocab(voc, isInList, ind)"
+                )
