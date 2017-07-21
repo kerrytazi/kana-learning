@@ -1,0 +1,36 @@
+#vue_container(
+    @click="closeSettings"
+)
+    #main_panel
+        .kana_out(
+            v-text="pair ? pair[1] : ''"
+        )
+        input.kana_in(
+            type="text"
+            autofocus
+            v-model="inputText"
+            :class="show.scene"
+            @keydown.enter.lazy="onEnter"
+        )
+        .result_correct(
+            v-text="result.correct"
+        )
+        .result_incorrect(
+            v-text="result.incorrect"
+        )
+        .settings_btn(
+            @click.stop="settings.visible = 'open_settings'"
+        )
+            include settings-ico.pug
+    #settings_panel(
+        v-if="settings.visible"
+        :class="settings.visible"
+        @click.stop
+    )
+        .vocabs
+            .vocab_item(
+                v-for="_, voc, _, ind, isInList in vocabList"
+                v-text="voc"
+                :in-list="isInList = -1 < (ind = settings.vocabs.indexOf(voc))"
+                @click="changeVocab(voc, isInList, ind)"
+            )

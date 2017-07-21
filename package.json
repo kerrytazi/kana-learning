@@ -1,6 +1,6 @@
 {
     "name": "kana-learning",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Web app for test your knowleges",
     "main": "index.js",
     "repository": {

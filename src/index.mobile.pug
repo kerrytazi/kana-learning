@@ -1,9 +1,16 @@
 extends templates/layout.pug
 
 
+block metas
+    meta(
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+    )
+
+
 block styles
     style
-        include:clean-css css/main.pc.css
+        include:clean-css css/main.mobile.css
 
 
 block scripts
