@@ -29,7 +29,7 @@ const FILES = init([__dirname, "src"], [
 
 
 http.createServer((req, res) => {
-    // try {
+    try {
         let { pathname } = url.parse(req.url);
         switch (pathname) {
             case "/":
@@ -41,7 +41,7 @@ http.createServer((req, res) => {
                 return send(req, res, FILES.favicon);
                 break;
         }
-    // } catch(e) {}
+    } catch(e) {}
     
     res.statusCode = 404;
     res.end();
