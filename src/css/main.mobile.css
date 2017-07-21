@@ -103,7 +103,6 @@ body {
 .vocab_item {
     background: rgba(98,27,27,.4);
     margin: 1.5vw;
-    cursor: pointer;
 
     font-size: 9vw;
     text-align: center;
