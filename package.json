@@ -12,6 +12,6 @@
     "dependencies": {
         "jstransformer-clean-css": "^2.0.0",
         "jstransformer-uglify-es": "^0.2.1",
-        "pug": "^2.0.0-rc.2"
+        "pug": "^3.0.1"
     }
 }
